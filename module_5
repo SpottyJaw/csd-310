@@ -1,0 +1,13 @@
+import pymongo
+from pymongo import MongoClient
+client = MongoClient("mongodb+srv://admin:<password>@cluster0.kxpbr.mongodb.net/?retryWrites=true&w=majority")
+db = client["pytech"]
+collection = db["students"]
+
+post1 = {"_id": 1007, "First Name": "Byakuya", "Last Name": "Kuchiki"}
+post2 = {"_id": 1008, "First Name": "Yami", "Last Name": "Sukehiro"}
+post3 = {"_id": 1009, "First Name": "Shiba", "Last Name": "Tatsuya"}
+
+#collection.insert_one(post1)
+
+collection.insert_many([post1, post2, post3])
